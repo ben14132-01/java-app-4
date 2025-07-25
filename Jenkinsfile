@@ -228,6 +228,7 @@ pipeline {
         stage('Deploy with ArgoCD') {
             steps {
                 script {
+                    def commitId = env.COMMIT_ID
                     bat """
                         wsl argocd app get java-app-4 || wsl argocd app create java-app-4 \
                             --repo https://github.com/ben14132-01/java-app-4.git \
