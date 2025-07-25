@@ -237,7 +237,7 @@ pipeline {
                             --values values-dev.yaml \
                             --revision main \
                             --sync-policy manual \
-                            --sync-option CreateNamespace=true
+                            --sync-option CreateNamespace=true \
                             --helm-set image.tag=${commitId}
                     """
                 }
