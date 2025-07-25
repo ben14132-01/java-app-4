@@ -220,7 +220,6 @@ pipeline {
             steps {
                 script {
                     bat """
-                        # Connects the argocd repo
                         wsl repo="https://github.com/ben14132-01/java-app-4.git"
                         wsl argocd repo list | wsl grep -q $repo || wsl argocd repo add $repo
                     """
