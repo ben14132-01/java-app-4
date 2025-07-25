@@ -220,8 +220,7 @@ pipeline {
             steps {
                 script {
                     bat """
-                        wsl repo="https://github.com/ben14132-01/java-app-4.git"
-                        wsl argocd repo list | wsl grep -q $repo || wsl argocd repo add $repo
+                        wsl argocd repo list | wsl grep -q https://github.com/ben14132-01/java-app-4.git || wsl argocd repo add https://github.com/ben14132-01/java-app-4.git
                     """
                 }
             }
@@ -231,7 +230,7 @@ pipeline {
                 script {
                     bat """
                         wsl argocd app get java-app-4 || wsl argocd app create java-app-4 \
-                            --repo $repo \
+                            --repo https://github.com/ben14132-01/java-app-4.git \
                             --path charts/java-app-4 \
                             --dest-namespace dev \
                             --dest-server https://kubernetes.default.svc \
