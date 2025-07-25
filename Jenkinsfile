@@ -238,6 +238,7 @@ pipeline {
                             --revision main \
                             --sync-policy manual \
                             --sync-option CreateNamespace=true
+                            --helm-set image.tag=${commitId}
                     """
                 }
             }
